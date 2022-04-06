@@ -9,6 +9,9 @@ const graph = require("./routes/graph")
 // const fetch = require("node-fetch");
 // const http = require("http");
 
+const csvFilePath='./uploadedFile/209-SVT.csv'
+const csv=require('csvtojson')
+
 
 app.use(upload());
 app.use(express.static('uploadedFile')); // to access the files in public folder
@@ -40,6 +43,19 @@ app.get('/', (req, res) => {
 //export function 
 
 app.post('/upload',(req,res) =>{
+
+csv()
+.fromFile(csvFilePath)
+.then((jsonObj)=>{
+    console.log(jsonObj);
+    /**
+     * [
+     * 	{a:"1", b:"2", c:"3"},
+     * 	{a:"4", b:"5". c:"6"}
+     * ]
+     */ 
+})
+
   let amps = req.body.amp;
   let freqs = req.body.freq;
   console.log(amps);
@@ -62,8 +78,12 @@ app.post('/upload',(req,res) =>{
         console.log(freqs);
         res.send('Done! Uploading files')
         exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt],function(err, data) {  
-          console.log(err)
-          console.log(data.toString());                       
+          if(err){
+            console.log(err)
+          }
+          else{
+            console.log(data.toString());     
+          }            
         });  
       }
     });

@@ -1,2 +1,2 @@
 Filename	Amplification	SamplingRate(Hz)	ANN(bpm)	RR Interval(ms)	SDANN(ms)	rMSSD(ms)	R-peak	ValidRR	P-wave	P-RValid	QS-waves
-./uploadedfile/209-SVT	20	360	113.760330	569.237122	102.587387	46.704540	487	485	396	387	459
+./uploadedfile/209-SVT	20	60	-0.000000	1.#INF00	-1.#IND00	-0.000000	487	0	396	6	459
