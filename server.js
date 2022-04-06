@@ -4,6 +4,8 @@ const app = express();
 const exec = require('child_process').execFile; //executing the .exe file (program)
 const bodyParser = require('body-parser');
 const upload = require("express-fileupload");
+
+const graph = require("./routes/graph")
 // const fetch = require("node-fetch");
 // const http = require("http");
 
@@ -72,10 +74,9 @@ app.post('/upload',(req,res) =>{
   };
 })
 
-app.route('/graph')
-.get(function (req, res) {
-  res.sendFile(__dirname + '/graph.htm')
-})
+app.use('/graph', graph);
+//use the graph.js file to handle
+//endpoints that start with /graph
 
 app.route('/trial')
 .get(function (req, res) {
