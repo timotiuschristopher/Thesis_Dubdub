@@ -80,7 +80,7 @@ int getQwave(int dataLPF[], int Rx[], int q, int sR, char fileNameQS[], float DW
 				countQ++;
 			}		
 		}
-		fprintf(trackQS, "%\n");
+		fprintf(trackQS, "\n");
 	}
 	return countQ;
 }
