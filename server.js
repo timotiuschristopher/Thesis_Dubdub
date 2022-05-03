@@ -6,11 +6,44 @@ const bodyParser = require('body-parser');
 const upload = require("express-fileupload");
 
 const graph = require("./routes/graph")
+
+const DBService = require("./services/DatabaseService")
+var dbDAO = require("./services/dbDAO")
+
+// process.on('unhandledRejection', (reason, p) => {
+//   console.log('Unhandled Rejection at:', p, 'reason:', reason)
+// })
+
 // const fetch = require("node-fetch");
 // const http = require("http");
 
-const csvFilePath='./uploadedFile/209-SVT.csv'
-const csv=require('csvtojson')
+// const csvFilePath='./uploadedFile/209-SVT.csv'
+// const csv=require('csvtojson')
+  
+DBService.connectDB(async (err) => {
+  if (err) console.log(err);
+  // start the rest of your app here
+  const db = DBService.getDB()
+  const patients = db.collection('patient')
+
+  console.log("Connected to DubDub MongoDB Atlas!");
+
+  try{
+    const listPatients = await dbDAO.getPatients(patients)
+    console.log('GET ALL PATIENTS')
+    console.log(listPatients)
+  } catch (e) {
+    throw e
+  }
+
+  const desired = true
+  if (desired) {
+    // Use disconnectDB for clean driver disconnect
+    DBService.disconnectDB()
+    process.exit(0)
+  }
+  // Server code anywhere above here inside connectDB()
+})
 
 
 app.use(upload());
@@ -44,11 +77,11 @@ app.get('/', (req, res) => {
 
 app.post('/upload',(req,res) =>{
 
-csv()                       //convert csv to json
-.fromFile(csvFilePath)
-.then((jsonObj)=>{
-    console.log(jsonObj);
-})
+// csv()                       //convert csv to json
+// .fromFile(csvFilePath)
+// .then((jsonObj)=>{
+//     console.log(jsonObj);
+// })
 
   let amps = req.body.amp;
   let freqs = req.body.freq;
@@ -88,6 +121,8 @@ csv()                       //convert csv to json
   };
 })
 
+// app.use('', DBService);
+
 app.use('/graph', graph);
 //use the graph.js file to handle
 //endpoints that start with /graph
@@ -96,6 +131,8 @@ app.route('/trial')
 .get(function (req, res) {
   res.sendFile(__dirname + '/realtime.htm')
 })
+
+
 
 const PORT = process.env.PORT || 3001;
 
