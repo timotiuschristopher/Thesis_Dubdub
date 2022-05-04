@@ -1,61 +1,3 @@
-// const {MongoClient} = require('mongodb');
-
-// async function main(){
-//   /**
-//    * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-//    * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-//    */
-//   const uri = "mongodb+srv://christo:admin@clusterdubdub.ugzrc.mongodb.net/ecg?retryWrites=true&w=majority";
-
-
-//   const client = new MongoClient(uri);
-
-//   try {
-//       // Connect to the MongoDB cluster
-//       await client.connect();
-
-//       console.log("Connected to DubDub MongoDB Atlas!")
-//       // Make the appropriate DB calls
-//       // await  listDatabases(client);
-
-//   } catch (e) {
-//       console.error(e);
-//   } finally {
-//       await client.close();
-//   }
-// }
-
-// main().catch(console.error);
-
-// // async function listDatabases(client){
-// //   databasesList = await client.db().admin().listDatabases();
-
-// //   console.log("Databases:");
-// //   databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-// // };
-// "use strict";
-// const express = require("express");
-// let dbrouter = express.Router();
-
-// const MongoClient = require( 'mongodb' ).MongoClient;
-// const uri = "mongodb+srv://christo:admin@clusterdubdub.ugzrc.mongodb.net/ecg?retryWrites=true&w=majority";
-
-// var _db;
-
-// module.exports = {
-
-//   connectToServer: function( callback ) {
-//     MongoClient.connect( uri,  { useNewUrlParser: true }, function( err, client ) {
-//       _db  = client.db('ecg');
-//       return callback( err );
-//     } );
-//   },
-
-//   getDb: function() {
-//     return _db;
-//   }
-// };
-
 // const {MongoClient} = require('mongodb')
 // const uri = 'mongodb+srv://christo:admin@clusterdubdub.ugzrc.mongodb.net/ecg?retryWrites=true&w=majority'
 // let _db
@@ -96,16 +38,28 @@ const insertDocuments = (db, callback) => {
   );
 };
 
-async function findDocuments(db, nameOfPatient) {
-  const result = await db.collection("patient").findOne({name: nameOfPatient });
+async function findDocuments(db,nameOfPatient) {
+  const result = await db.collection("patient").find({"name":nameOfPatient}).toArray();
   if (result) {
-      console.log(`Found Patient '${nameOfPatient}':`);
+      console.log(`Found Patient: '${nameOfPatient}'`);
       console.log(result);
+
+      // Convert JSON into Array
+      const array = [];
+      const ObjResult = JSON.parse(result);
+
+
+      // for(var i in result) {
+      //   array.push([i,result[i]]);
+      // }
+      console.log(ObjResult.volt[]);
+
   } else {
       console.log(`No patients found with the name '${nameOfPatient}'`);
   }
 }
 
+// db.singleFieldDemo.find({"StudentAge":18},{"StudentName":1,"_id":0});
 
 MongoClient.connect(url, (error, client) => {
   if (error) return process.exit(1);
@@ -117,9 +71,4 @@ MongoClient.connect(url, (error, client) => {
   //   console.log('Insert successful');
   // });
   findDocuments(db, "John Doe");
-
-  // findDocuments(db, "John Doe", () => {
-  //   console.log('Data found!');
-  //   console.log(`The data is '${result}'`);
-  // })
 });

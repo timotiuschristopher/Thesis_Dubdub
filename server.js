@@ -20,30 +20,30 @@ var dbDAO = require("./services/dbDAO")
 // const csvFilePath='./uploadedFile/209-SVT.csv'
 // const csv=require('csvtojson')
   
-DBService.connectDB(async (err) => {
-  if (err) console.log(err);
-  // start the rest of your app here
-  const db = DBService.getDB()
-  const patients = db.collection('patient')
+// DBService.connectDB(async (err) => {
+//   if (err) console.log(err);
+//   // start the rest of your app here
+//   const db = DBService.getDB()
+//   const patients = db.collection('patient')
 
-  console.log("Connected to DubDub MongoDB Atlas!");
+//   console.log("Connected to DubDub MongoDB Atlas!");
 
-  try{
-    const listPatients = await dbDAO.getPatients(patients)
-    console.log('GET ALL PATIENTS')
-    console.log(listPatients)
-  } catch (e) {
-    throw e
-  }
+//   try{
+//     const listPatients = await dbDAO.getPatients(patients)
+//     console.log('GET ALL PATIENTS')
+//     console.log(listPatients)
+//   } catch (e) {
+//     throw e
+//   }
 
-  const desired = true
-  if (desired) {
-    // Use disconnectDB for clean driver disconnect
-    DBService.disconnectDB()
-    process.exit(0)
-  }
-  // Server code anywhere above here inside connectDB()
-})
+//   const desired = true
+//   if (desired) {
+//     // Use disconnectDB for clean driver disconnect
+//     DBService.disconnectDB()
+//     process.exit(0)
+//   }
+//   // Server code anywhere above here inside connectDB()
+// })
 
 
 app.use(upload());
