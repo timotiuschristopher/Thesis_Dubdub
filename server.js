@@ -8,42 +8,49 @@ const upload = require("express-fileupload");
 const graph = require("./routes/graph")
 
 const DBService = require("./services/DatabaseService")
-var dbDAO = require("./services/dbDAO")
+const dbDAO = require("./services/dbDAO")
 
-// process.on('unhandledRejection', (reason, p) => {
-//   console.log('Unhandled Rejection at:', p, 'reason:', reason)
-// })
+// Connect to MongoDB and put server instantiation code inside
+ // because we start the connection first
 
-// const fetch = require("node-fetch");
-// const http = require("http");
+const seedPatient = {
+  name:"Irene",
+  volt:"cars",
+}
 
-// const csvFilePath='./uploadedFile/209-SVT.csv'
-// const csv=require('csvtojson')
-  
-// DBService.connectDB(async (err) => {
-//   if (err) console.log(err);
-//   // start the rest of your app here
-//   const db = DBService.getDB()
-//   const patients = db.collection('patient')
+DBService.connectDB(async (err) => {
+  if (err) throw err
+  // Load db & collections
+  const db = DBService.getDB()
+  const Patients = db.collection('patient')
 
-//   console.log("Connected to DubDub MongoDB Atlas!");
+  try {
+      // // Run some sample operations
+      // // and pass users collection into models
+      const newPatient = await dbDAO.createPatient(Patients, seedPatient)
+      const listPatients = await dbDAO.getPatients(Patients)
+      // const findUser = await Users.findUserById(users, newUser._id)
+      console.log('Connestion is established');
 
-//   try{
-//     const listPatients = await dbDAO.getPatients(patients)
-//     console.log('GET ALL PATIENTS')
-//     console.log(listPatients)
-//   } catch (e) {
-//     throw e
-//   }
+      console.log('CREATE PATIENT');
+      console.log(newPatient);
+      console.log('GET ALL PATIENTS');
+      console.log(listPatients);
+      // console.log('FIND USER');
+      // console.log(findUser);
+  } catch (e) {
+      throw e
+  }
 
-//   const desired = true
-//   if (desired) {
-//     // Use disconnectDB for clean driver disconnect
-//     DBService.disconnectDB()
-//     process.exit(0)
-//   }
-//   // Server code anywhere above here inside connectDB()
-// })
+  // const desired = true
+  // if (desired) {
+  //     // Use disconnectDB for clean driver disconnect
+  //     DBService.disconnectDB()
+  //     process.exit(0)
+  // }
+  // Server code anywhere above here inside connectDB()
+})
+
 
 
 app.use(upload());
