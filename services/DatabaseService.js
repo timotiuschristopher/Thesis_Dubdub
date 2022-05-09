@@ -15,9 +15,9 @@ const connectDB = async (callback) => {
 
 const getDB = () => _db
 
-const disconnectDB = () => _db.close()
+// const disconnectDB = () => _db.close()
 
-module.exports = { connectDB, getDB, disconnectDB }
+module.exports = { connectDB, getDB }
 
 // const {MongoClient} = require('mongodb');
 // const url = 'mongodb+srv://christo:admin@clusterdubdub.ugzrc.mongodb.net/ecg?retryWrites=true&w=majority';
