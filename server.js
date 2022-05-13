@@ -30,7 +30,7 @@ DBService.connectDB(async (err) => {
       const newPatient = await dbDAO.createPatient(Patients, seedPatient)
       const listPatients = await dbDAO.getPatients(Patients)
       // const findUser = await Users.findUserById(users, newUser._id)
-      console.log('Connestion is established');
+      console.log('Connection is established');
 
       console.log('CREATE PATIENT');
       console.log(newPatient);
