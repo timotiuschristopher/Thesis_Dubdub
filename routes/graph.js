@@ -7,7 +7,7 @@ let router = express.Router();
 router
 .route('')
 .get(function (req, res) {
-  res.sendFile('C:/Users/Debby/Documents/thesistrial/thesistrial/graph.htm') //__dirname + 'C:/Users/Debby/Documents/thesistrial/thesistrial/graph.htm'
+  res.sendFile(express.static(__dirname + '../graph.htm')) //__dirname + 'C:/Users/Debby/Documents/thesistrial/thesistrial/graph.htm'
 })
 
 module.exports = router;
