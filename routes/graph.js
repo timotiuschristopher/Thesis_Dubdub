@@ -1,14 +1,13 @@
 "use strict";
-const express = require("express");
+var express = require("express");
+var app = express();
 let router = express.Router();
-var path = require("path");
-
-// let reqPath = path.join(__dirname,'../graph.htm')
+var path = require('path');
 
 router
 .route('')
 .get(function (req, res) {
-  res.sendFile(path.join(__dirname + '/../index.htm')) //__dirname + 'C:/Users/Debby/Documents/thesistrial/thesistrial/graph.htm'
+  res.sendFile(path.join(__dirname, '/../graph.htm')) //__dirname + 'C:/Users/Debby/Documents/thesistrial/thesistrial/graph.htm'
 })
 
 module.exports = router;

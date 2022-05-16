@@ -30,10 +30,10 @@ DBService.connectDB(async (err) => {
       const newPatient = await dbDAO.createPatient(Patients, seedPatient)
       const listPatients = await dbDAO.getPatients(Patients)
       // const findUser = await Users.findUserById(users, newUser._id)
-      console.log('Connestion is established');
+      console.log('Connection is established');
 
-      console.log('CREATE PATIENT');
-      console.log(newPatient);
+      // console.log('CREATE PATIENT');
+      // console.log(newPatient);
       console.log('GET ALL PATIENTS');
       console.log(listPatients);
       // console.log('FIND USER');
@@ -139,9 +139,8 @@ app.route('/trial')
   res.sendFile(__dirname + '/realtime.htm')
 })
 
-
+console.log(__dirname);
 
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => console.log('Server started on port '+ PORT));
-console.log(__dirname);
