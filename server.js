@@ -54,7 +54,7 @@ DBService.connectDB(async (err) => {
 
 
 app.use(upload());
-app.use(express.static('uploadedFile')); // to access the files in public folder
+app.use(express.static('./uploadedFile')); // to access the files in public folder
 app.use(cors()); // it enables all cors requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
