@@ -110,7 +110,6 @@ app.post('/upload',(req,res) =>{
         console.log("File Uploaded",name);
         console.log(amps);
         console.log(freqs);
-        res.send('Done! Uploading files')
         exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt],function(err, data) {  
           if(err){
             console.log(err)
@@ -118,7 +117,8 @@ app.post('/upload',(req,res) =>{
           else{
             console.log(data.toString());     
           }            
-        });  
+        }); 
+        res.send('Done! Uploading files & Calculated') 
       }
     });
   }
