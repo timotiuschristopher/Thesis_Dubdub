@@ -147,7 +147,7 @@ int main(int argc, char* argv[])
 	ifstream myfilecheck (fileNameRaw);
 	cout << fileNameRaw << endl;
     
-    	double l = 0; //File lines
+    	long l = 0; //File lines
         if (myfilecheck.is_open())
         {
             

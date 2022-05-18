@@ -86,7 +86,7 @@ function execPromise(amps,freqs,noExt) {
   console.log("LINE 86",amps,freqs,noExt);
   return new Promise(function(resolve, reject) {
     console.log("LINE 88",amps,freqs,noExt);  
-    exec('./uploadedFile/x1', [amps, freqs, noExt], (err, data) => {
+    exec('./uploadedFile/x1', [amps, freqs, './uploadedFile/'+ noExt], (err, data) => {
         console.log("LINE 89",amps,freqs,noExt,data);    
         if (err) {
               reject(err);
