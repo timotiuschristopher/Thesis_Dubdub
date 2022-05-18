@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
 function execPromise(amps,freqs,noExt) {
   console.log("LINE 86",amps,freqs,noExt);
   return new Promise(function(resolve, reject) {
-    console.log("LINE 88",amps,freq,noExt);  
+    console.log("LINE 88",amps,freqs,noExt);  
     exec('./uploadedFile/x1', [amps, freqs, './uploadedFile/'+ noExt], (err, data) => {
         console.log("LINE 89",amps,freqs,noExt,data);    
         if (err) {
