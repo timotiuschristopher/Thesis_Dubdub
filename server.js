@@ -120,6 +120,8 @@ app.post('/upload', (req,res) =>{
       }
       else {
         console.log("File Uploaded",name);
+        console.log(uploadpath);
+        console.log("no ext", noExt);
         console.log(amps);
         console.log(freqs);
 
