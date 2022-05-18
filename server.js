@@ -116,8 +116,10 @@ app.post('/upload',(req,res) =>{
           }
           else{
             console.log(data.toString());     
-          }            
+          }       
+          console.log(data)     
         }); 
+        console.log('Ciagyu suka makan Wagyu');
         res.send('Done! Uploading files & Calculated') 
       }
     });
