@@ -84,7 +84,7 @@ app.get('/', (req, res) => {
 
 function execPromise(amps,freqs,noExt) {
   return new Promise(function(resolve, reject) {
-      exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt], (err, data) => {
+      exec('./uploadedFile/x1', [amps, freqs, './uploadedFile/'+ noExt], (err, data) => {
           if (err) {
               reject(err);
               return;
