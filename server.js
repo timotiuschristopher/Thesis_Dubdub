@@ -12,7 +12,7 @@ const dbDAO = require("./services/dbDAO")
 
 // Connect to MongoDB and put server instantiation code inside
  // because we start the connection first
-
+/*
 const seedPatient = {
   name:"Irene",
   volt:"cars",
@@ -27,7 +27,7 @@ DBService.connectDB(async (err) => {
   try {
       // // Run some sample operations
       // // and pass users collection into models
-      const newPatient = await dbDAO.createPatient(Patients, seedPatient)
+      // const newPatient = await dbDAO.createPatient(Patients, seedPatient)
       const listPatients = await dbDAO.getPatients(Patients)
       // const findUser = await Users.findUserById(users, newUser._id)
       console.log('Connection is established');
@@ -51,10 +51,10 @@ DBService.connectDB(async (err) => {
   // Server code anywhere above here inside connectDB()
 })
 
-
+*/
 
 app.use(upload());
-app.use(express.static('./uploadedFile')); // to access the files in public folder
+app.use(express.static('uploadedFile')); // to access the files in public folder
 app.use(cors()); // it enables all cors requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -82,7 +82,19 @@ app.get('/', (req, res) => {
 // })
 //export function 
 
-app.post('/upload',(req,res) =>{
+function execPromise(amps,freqs,noExt) {
+  return new Promise(function(resolve, reject) {
+      exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt], (err, data) => {
+          if (err) {
+              reject(err);
+              return;
+          }
+          resolve(data);
+      });
+  });
+}
+
+app.post('/upload', (req,res) =>{
 
 // csv()                       //convert csv to json
 // .fromFile(csvFilePath)
@@ -110,27 +122,34 @@ app.post('/upload',(req,res) =>{
         console.log("File Uploaded",name);
         console.log(amps);
         console.log(freqs);
-        exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt],function(err, data) {  
-          if(err){
-            console.log(err)
-          }
-          else{
-            console.log(data.toString());     
-          }       
-          console.log(data)     
-        }); 
-        console.log('Ciagyu suka makan Wagyu');
-        res.send('Done! Uploading files & Calculated') 
+
+        execPromise(amps,freqs,noExt).then(function(result) {
+          console.log(result);
+          console.log('Ciagyu suka makan Wagyu');
+          res.send('Done! Uploading files & Calculated') 
+        }).catch(function(e) {
+          console.error(e.message);
+        });
+      //   exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt], function (err, data) {  
+      //     if(err){
+      //       console.log(err)
+      //     }
+      //     else{
+      //       console.log('ini buat lihat data');
+      //       console.log(data.toString());     
+      //     }       
+      //   }); 
+        // console.log('Ciagyu suka makan Wagyu');
+        // res.send('Done! Uploading files & Calculated') 
       }
     });
   }
   else {
+    console.log('else paling akhir');
     res.send("No File selected !");
     res.end();
   };
 })
-
-// app.use('', DBService);
 
 app.use('/graph', graph);
 //use the graph.js file to handle
