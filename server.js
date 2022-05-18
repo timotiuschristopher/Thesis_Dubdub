@@ -95,7 +95,7 @@ function execPromise(amps,freqs,noExt) {
 }
 
 app.post('/upload', (req,res) =>{
-
+  res.send('apa aja test')
 // csv()                       //convert csv to json
 // .fromFile(csvFilePath)
 // .then((jsonObj)=>{
