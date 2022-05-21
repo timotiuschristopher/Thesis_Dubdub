@@ -18,30 +18,40 @@
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.7"></script>
         <link rel="stylesheet" href="style.css">
         
-        <title>Node File Upload</title>
+        <title>DubDub Cloud Computing Virtual System</title>
     </head>
     <body>
         <h1 align="center">ECG Signal Computation and Plotter</h1>
-        <form class="fileupload" action="upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="upfile" id="filename" value="">
-            <br>
-            Amplification = <input text="number" name="amp" required/>
-            <br>
-            Sampling Frequency = <input text="number" name="freq" required/>
-            <br>
-            <input type="submit"/>
-            <br>
-            Name of File (without .csv) = <input type="text" id="nameoffile">
-            <button type="button" onclick="start()">Display Data</button>
-        </form>
+        <hr>
+
+        <table>
+            <center><form class="fileupload" action="upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="upfile" id="filename" value=""> </center>
         <br>
-        <form action="/graph" method="GET">
-        <button>Full Signal View</button>
-        </form>
+            <tr>
+                <td align ="left"> <label> Amplification : </label></td>
+                <td align ="center"><input text="number" name="amp" required/></td>
+            </tr>
+            <tr>
+                <td align="left"> <label> Sampling Frequency : </label></td>
+                <td align="center"><input text="number" name="freq" required/></td>
+                <td> <input type="submit"></td>
+            </tr>
+            <tr>
+                <td align="left"> <label> Name of File (without .csv) : </label> </td>
+                <td align="center"><input type="text" id="nameoffile"></td> 
+                <td align="right"><button type="button" onclick="start()">Display Data</button></td>
+            </tr> 
+        </table></form> 
         <br>
-        <form action="/trial" method="GET">
-        <button>Trial</button>
-        </form>
+        <br>
+                <form action="/graph" method="GET">
+                <center><button>Full Signal View</button></center>
+                </form>
+        <br>
+                <form action="/trial" method="GET">
+                <center> <button>Trial</button> </center>
+                </form>
         <br>
         <div class="wrap" style="position:relative; width:4000px; height:300; overflow-x:auto; white-space: nowrap;">
             <!-- style="width:4000px; height:450px; overflow-x: scroll;" -->

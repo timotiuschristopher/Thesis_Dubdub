@@ -1,5 +1,8 @@
+//Load credentials
+require('dotenv').config({path:'./credentials/secrets.env'})
+
 const MongoClient = require( 'mongodb' ).MongoClient;
-const uri = 'mongodb+srv://christo:admin@clusterdubdub.ugzrc.mongodb.net/ecg?retryWrites=true&w=majority'
+const uri = process.env.MONGODB_URI         //MongoDB URL from .env
 let _db
 
 const connectDB = async (callback) => {

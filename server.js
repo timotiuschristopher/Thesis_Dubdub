@@ -7,7 +7,8 @@ const upload = require("express-fileupload");
 const graph = require("./routes/graph")
 const DBService = require("./services/DatabaseService")
 const dbDAO = require("./services/dbDAO")
-const s3Service = require("./services/s3service")
+const s3Service = require("./services/s3service");
+const res = require('express/lib/response');
 
 // Connect to MongoDB and put server instantiation code inside
 // because we start the connection first
@@ -169,6 +170,12 @@ app.use('/graph', graph);
 app.route('/trial')
 .get(function (req, res) {
   res.sendFile(__dirname + '/realtime.htm')
+})
+
+app.route('/puttoAWSS3')
+.get(function(req, res){
+  
+  res.send('Done! Uploaded Files to AWS S3!')
 })
 
 console.log(__dirname);

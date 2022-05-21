@@ -1,3 +1,5 @@
+//Load credentials
+require('dotenv').config({path:'./credentials/secrets.env'})
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
 // Set the region 
@@ -8,9 +10,9 @@ var BucketURI= "arn:aws:s3:::datalake-puskesmas/";
 var Bucketname = "datalake-puskesmas";
 
 const s3 = new AWS.S3({
-    accessKeyId: "AKIAZXZUGAJ6USZ2O4W4",                                //required # Put your iam user key
-    secretAccessKey: "U467oErXzPbH3wUZSxHMRSZyDGu/Dm19TYDkOHkD",        //required # Put your iam user secret key
-    Bucket: BucketURI                                                   //required *# Put your bucket name
+    accessKeyId: process.env.IAM_USER_KEY,                  //required # Put your iam user key
+    secretAccessKey: process.env.IAM_USER_SECRET,           //required # Put your iam user secret key
+    Bucket: BucketURI                           //required *# Put your bucket name
   });
 
 // // Call S3 to list the buckets
