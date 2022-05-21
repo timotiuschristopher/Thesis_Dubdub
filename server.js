@@ -122,14 +122,13 @@ app.post('/upload', (req,res) =>{
         console.log(amps);
         console.log(freqs);
 
-        execPromise(amps,freqs,noExt).then(function(result) {    //executing the computing program in C language
+        await execPromise(amps,freqs,noExt).then(function(result) {    //executing the computing program in C language
           console.log(result);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+".csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"LPF.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"QRS.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"Peak.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"PeakTrack.csv",`${noExt}`);
-          s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"P.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"RLPF.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"RLPFp.csv",`${noExt}`);
@@ -138,6 +137,7 @@ app.post('/upload', (req,res) =>{
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"log.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"QS.csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pre.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`);
           res.send('Done! Uploading files & Calculated') 
         }).catch(function(e) {
           console.error(e.message);
