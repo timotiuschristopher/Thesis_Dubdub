@@ -1,0 +1,2 @@
+HR(bpm)	RR Interval(ms)	SDANN(ms)	rMSSD(ms)	Ratio of P-wave : R-peak
+WARNING (HR<40)	NORMAL RR INTERVAL	NORMAL SDANN	LOW rMSSD (rMSSD<14)	0 : 0

@@ -24,7 +24,7 @@ const s3 = new AWS.S3({
 //   }
 // });
 
-const s3uploadFile = (file,folder) =>{
+const s3uploadFile = async (file,folder) =>{
     // call S3 to retrieve upload file to specified bucket
     var uploadParams = {Bucket:Bucketname, Key: '', Body: ''};
     // var file = process.argv[2];
@@ -41,7 +41,8 @@ const s3uploadFile = (file,folder) =>{
     uploadParams.Key = (`${folder}/` + path.basename(file)); 
 
     // call S3 to retrieve upload file to specified bucket
-    s3.upload(uploadParams, function (err, data) {
+     
+    await s3.upload(uploadParams, function (err, data) {
         if (err) {
             console.log("Error", err);
         } if (data) {
@@ -49,5 +50,6 @@ const s3uploadFile = (file,folder) =>{
         }
     });
 };
+
 
 module.exports = { s3uploadFile }
