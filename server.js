@@ -4,58 +4,55 @@ const app = express();
 const exec = require('child_process').execFile; //executing the .exe file (program)
 const bodyParser = require('body-parser');
 const upload = require("express-fileupload");
-
 const graph = require("./routes/graph")
-
 const DBService = require("./services/DatabaseService")
 const dbDAO = require("./services/dbDAO")
+const s3Service = require("./services/s3service")
 
 // Connect to MongoDB and put server instantiation code inside
- // because we start the connection first
-/*
-const seedPatient = {
-  name:"Irene",
-  volt:"cars",
-}
+// because we start the connection first
 
-DBService.connectDB(async (err) => {
-  if (err) throw err
-  // Load db & collections
-  const db = DBService.getDB()
-  const Patients = db.collection('patient')
+// const seedPatient = {
+//   name:"Irene",
+//   volt:"cars",
+// }
 
-  try {
-      // // Run some sample operations
-      // // and pass users collection into models
-      // const newPatient = await dbDAO.createPatient(Patients, seedPatient)
-      const listPatients = await dbDAO.getPatients(Patients)
-      // const findUser = await Users.findUserById(users, newUser._id)
-      console.log('Connection is established');
+// DBService.connectDB(async (err) => {
+//   if (err) throw err
+//   // Load db & collections
+//   const db = DBService.getDB()
+//   const Patients = db.collection('patient')
 
-      // console.log('CREATE PATIENT');
-      // console.log(newPatient);
-      console.log('GET ALL PATIENTS');
-      console.log(listPatients);
-      // console.log('FIND USER');
-      // console.log(findUser);
-  } catch (e) {
-      throw e
-  }
+//   try {
+//       // // Run some sample operations
+//       // // and pass users collection into models
+//       // const newPatient = await dbDAO.createPatient(Patients, seedPatient)
+//       const listPatients = await dbDAO.getPatients(Patients)
+//       // const findUser = await Users.findUserById(users, newUser._id)
+//       console.log('Connection is established');
 
-  // const desired = true
-  // if (desired) {
-  //     // Use disconnectDB for clean driver disconnect
-  //     DBService.disconnectDB()
-  //     process.exit(0)
-  // }
-  // Server code anywhere above here inside connectDB()
-})
+//       // console.log('CREATE PATIENT');
+//       // console.log(newPatient);
+//       console.log('GET ALL PATIENTS');
+//       console.log(listPatients);
+//       // console.log('FIND USER');
+//       // console.log(findUser);
+//   } catch (e) {
+//       throw e
+//   }
 
-*/
+//   // const desired = true
+//   // if (desired) {
+//   //     // Use disconnectDB for clean driver disconnect
+//   //     DBService.disconnectDB()
+//   //     process.exit(0)
+//   // }
+//   // Server code anywhere above here inside connectDB()
+// })
 
 app.use(upload());
 app.use(express.static('uploadedFile')); // to access the files in public folder
-app.use(cors()); // it enables all cors requests
+app.use(cors());                        // it enables all cors requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -83,22 +80,18 @@ app.get('/', (req, res) => {
 //export function 
 
 function execPromise(amps,freqs,noExt) {
-  console.log("LINE 86",amps,freqs,noExt);
-  return new Promise(function(resolve, reject) {
-    console.log("LINE 88",amps,freqs,noExt);  
+  return new Promise(function(resolve, reject) { 
     exec('./uploadedFile/x1', [amps, freqs, './uploadedFile/'+ noExt], (err, data) => {
-        console.log("LINE 89",amps,freqs,noExt,data);    
         if (err) {
               reject(err);
               return;
-          }
+        }
           resolve(data);
-      });
+    });
   });
 }
 
 app.post('/upload', (req,res) =>{
-  res.send('apa aja test')
 // csv()                       //convert csv to json
 // .fromFile(csvFilePath)
 // .then((jsonObj)=>{
@@ -128,13 +121,28 @@ app.post('/upload', (req,res) =>{
         console.log(amps);
         console.log(freqs);
 
-        execPromise(amps,freqs,noExt).then(function(result) {
+        execPromise(amps,freqs,noExt).then(function(result) {    //executing the computing program in C language
           console.log(result);
-          console.log('Ciagyu suka makan Wagyu');
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+".csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"LPF.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"QRS.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"Peak.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"PeakTrack.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"P.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"RLPF.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"RLPFp.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"RR.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"inRR.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"log.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"QS.csv",`${noExt}`);
+          s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pre.csv",`${noExt}`);
           res.send('Done! Uploading files & Calculated') 
         }).catch(function(e) {
           console.error(e.message);
         });
+
+
       //   exec('./uploadedFile/x1', [amps, freqs, './uploadedfile/'+ noExt], function (err, data) {  
       //     if(err){
       //       console.log(err)
@@ -144,13 +152,11 @@ app.post('/upload', (req,res) =>{
       //       console.log(data.toString());     
       //     }       
       //   }); 
-        // console.log('Ciagyu suka makan Wagyu');
         // res.send('Done! Uploading files & Calculated') 
       }
     });
   }
   else {
-    console.log('else paling akhir');
     res.send("No File selected !");
     res.end();
   };

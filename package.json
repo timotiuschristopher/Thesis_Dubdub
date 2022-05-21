@@ -1,7 +1,7 @@
 {
-  "name": "tryserver",
+  "name": "DubDub ECG Telemedicine",
   "version": "1.0.0",
-  "description": "trial server",
+  "description": "To compute ECG data and detecting cardiac arrythmias virtually",
   "main": "server.js",
   "scripts": {
     "test": "test1",
@@ -15,9 +15,10 @@
     "trial",
     "server"
   ],
-  "author": "sam",
+  "author": "Samuel Andrew",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1140.0",
     "child_process": "^1.0.2",
     "child-process": "^1.0.2",
     "cors": "^2.8.5",

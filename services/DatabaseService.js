@@ -34,22 +34,21 @@ module.exports = { connectDB, getDB }
 //   );
 // };
 
+// Convert JSON into Array
+      // const array = [];
+      // const ObjResult = JSON.parse(result);
+
+
+      // // for(var i in result) {
+      // //   array.push([i,result[i]]);
+      // // }
+      // console.log(ObjResult.volt[])
+
 // async function findDocuments(db,nameOfPatient) {
 //   const result = await db.collection("patient").find({"name":nameOfPatient},{projection:{_id:0,volt:1}}).toArray();
 //   if (result) {
 //       console.log(`Found Patient: '${nameOfPatient}'`);
 //       console.log(result);
-
-//       // Convert JSON into Array
-//       // const array = [];
-//       // const ObjResult = JSON.parse(result);
-
-
-//       // // for(var i in result) {
-//       // //   array.push([i,result[i]]);
-//       // // }
-//       // console.log(ObjResult.volt[])
-
 //   } else {
 //       console.log(`No patients found with the name '${nameOfPatient}'`);
 //   }
