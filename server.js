@@ -122,7 +122,7 @@ app.post('/upload', (req,res) =>{
         console.log(amps);
         console.log(freqs);
 
-        await execPromise(amps,freqs,noExt).then(function(result) {    //executing the computing program in C language
+        execPromise(amps,freqs,noExt).then(function(result) {    //executing the computing program in C language
           console.log(result);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+".csv",`${noExt}`);
           s3Service.s3uploadFile('./uploadedFile/'+noExt+"LPF.csv",`${noExt}`);
