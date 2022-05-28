@@ -6,9 +6,6 @@ const { promiseCallback } = require('express-fileupload/lib/utilities');
 // Set the region 
 AWS.config.update({
     region: 'ap-southeast-1'
-    // credentials:{
-    //   new AWS.SharedIniFileCredentials({profile: 'christo'})
-    // }
 });
 
 // Create S3 service object
@@ -18,19 +15,9 @@ var BucketName = "datalake-puskesmas";
 const s3 = new AWS.S3({
   accessKeyId: process.env.IAM_USER_KEY,                  //required # Put your iam user key
   secretAccessKey: process.env.IAM_USER_SECRET,           //required # Put your iam user secret key
-  Bucket: BucketURI                           //required *# Put your bucket name
-  });
+  Bucket: BucketURI                                       //required *# Put your bucket name
+});
 
-
-// Call S3 to list the buckets
-// const csv_obj = s3.getObject({Bucket:BucketName,Key:"209-SVT/209-SVT.csv"},function(err, data) {
-//   if (err) {
-//     console.log("Error", err);
-//   } else {
-//     console.log("Success", data);
-//   }
-  
-// });
 
 const s3uploader = async (file,folder) =>{
     // call S3 to retrieve upload file to specified bucket
@@ -57,8 +44,6 @@ const s3uploader = async (file,folder) =>{
         }
     });
 };
-
-
 
 const s3uploadFile = async (noExt) => {
     const a = await s3uploader('./uploadedFile/'+noExt+".csv",`${noExt}`);
@@ -90,12 +75,22 @@ const s3uploadFile = async (noExt) => {
     const n = await s3uploader('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`); 
     console.log('14.',n);
 }
-    // s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`);
 
 async function s3getBucketList(BucketName){
-  var listParams = {Bucket:BucketName, MaxKeys:10};
+  var listParams = {Bucket:BucketName, MaxKeys:100};
   const BucketObjectList = s3.listObjects(listParams).promise();
   return BucketObjectList || {};
 }
 
-module.exports = { s3uploadFile, s3getBucketList }
+async function getPresignedURL(BucketName, key){
+    const params = {
+        Bucket:BucketName, 
+        Key:key,
+        Expires: 60
+    }
+
+    const preSignedURL = await s3.getSignedUrl('getObject', params);
+    return preSignedURL;
+
+}
+module.exports = { s3uploadFile, s3getBucketList, getPresignedURL }

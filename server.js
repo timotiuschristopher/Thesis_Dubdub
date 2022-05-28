@@ -86,7 +86,10 @@ app.get('/', (req, res) => {
 //move the calculation to ecgController.ecgCompute
 app.post('/upload',ecgController.ecgCompute);
 
+//to show all of the objects in AWS S3 bucket on the Web application UI
 app.get('/all-files',s3Controller.s3Get);
+
+app.get('/get-object-url/:key', s3Controller.getSignedUrl);
  
 //use the graph.js file to handle
 //endpoints that start with /graph
