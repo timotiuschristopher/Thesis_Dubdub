@@ -1,0 +1,2 @@
+Filename	Amplification	SamplingRate(Hz)	ANN(bpm)	RR Interval(ms)	SDANN(ms)	rMSSD(ms)	R-peak	ValidRR	P-wave	P-RValid	QS-waves
+./uploadedFile/ECGDummy	20	360	113.760330	569.237122	102.587387	46.704540	487	485	396	387	459

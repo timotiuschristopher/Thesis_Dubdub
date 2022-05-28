@@ -1,0 +1,486 @@
+R-Peak Detected	 	RR Interval(ms)	Abnormal or Normal
+1477	1111	366	Small Interval (RR<600ms)
+1850	1477	373	Small Interval (RR<600ms)
+2211	1850	361	Small Interval (RR<600ms)
+2588	2211	377	Small Interval (RR<600ms)
+2958	2588	370	Small Interval (RR<600ms)
+3333	2958	375	Small Interval (RR<600ms)
+3705	3333	372	Small Interval (RR<600ms)
+4075	3705	370	Small Interval (RR<600ms)
+5952	4075	1877	Big Interval (RR>1200ms)
+6344	5952	392	Small Interval (RR<600ms)
+6744	6344	400	Small Interval (RR<600ms)
+7127	6744	383	Small Interval (RR<600ms)
+7508	7127	381	Small Interval (RR<600ms)
+7877	7508	369	Small Interval (RR<600ms)
+12016	11383	633	Normal Interval
+12452	12016	436	Small Interval (RR<600ms)
+12819	12452	367	Small Interval (RR<600ms)
+13422	12819	603	Normal Interval
+14033	13422	611	Normal Interval
+14636	14033	603	Normal Interval
+15233	14636	597	Small Interval (RR<600ms)
+15858	15233	625	Normal Interval
+16455	15858	597	Small Interval (RR<600ms)
+17069	16455	614	Normal Interval
+17702	17069	633	Normal Interval
+18366	17702	664	Normal Interval
+19036	18366	670	Normal Interval
+19691	19036	655	Normal Interval
+20350	19691	659	Normal Interval
+20983	20350	633	Normal Interval
+21544	20983	561	Small Interval (RR<600ms)
+22811	21544	1267	Big Interval (RR>1200ms)
+23461	22811	650	Normal Interval
+24122	23461	661	Normal Interval
+24786	24122	664	Normal Interval
+25455	24786	669	Normal Interval
+26072	25455	617	Normal Interval
+26697	26072	625	Normal Interval
+27319	26697	622	Normal Interval
+27955	27319	636	Normal Interval
+28575	27955	620	Normal Interval
+29202	28575	627	Normal Interval
+29861	29202	659	Normal Interval
+30491	29861	630	Normal Interval
+31183	30491	692	Normal Interval
+31830	31183	647	Normal Interval
+32483	31830	653	Normal Interval
+33138	32483	655	Normal Interval
+33791	33138	653	Normal Interval
+34416	33791	625	Normal Interval
+35030	34416	614	Normal Interval
+35680	35030	650	Normal Interval
+36369	35680	689	Normal Interval
+37063	36369	694	Normal Interval
+37727	37063	664	Normal Interval
+38375	37727	648	Normal Interval
+39016	38375	641	Normal Interval
+39650	39016	634	Normal Interval
+40280	39650	630	Normal Interval
+40897	40280	617	Normal Interval
+41558	40897	661	Normal Interval
+42244	41558	686	Normal Interval
+42911	42244	667	Normal Interval
+43555	42911	644	Normal Interval
+44194	43555	639	Normal Interval
+44852	44194	658	Normal Interval
+45377	44852	525	Small Interval (RR<600ms)
+46133	45377	756	Normal Interval
+46741	46133	608	Normal Interval
+47408	46741	667	Normal Interval
+48077	47408	669	Normal Interval
+48738	48077	661	Normal Interval
+49411	48738	673	Normal Interval
+50052	49411	641	Normal Interval
+50686	50052	634	Normal Interval
+51336	50686	650	Normal Interval
+51963	51336	627	Normal Interval
+52569	51963	606	Normal Interval
+53230	52569	661	Normal Interval
+53922	53230	692	Normal Interval
+54608	53922	686	Normal Interval
+55250	54608	642	Normal Interval
+55886	55250	636	Normal Interval
+56541	55886	655	Normal Interval
+57163	56541	622	Normal Interval
+57794	57163	631	Normal Interval
+58433	57794	639	Normal Interval
+59044	58433	611	Normal Interval
+59702	59044	658	Normal Interval
+60358	59702	656	Normal Interval
+61030	60358	672	Normal Interval
+61694	61030	664	Normal Interval
+62341	61694	647	Normal Interval
+62819	62341	478	Small Interval (RR<600ms)
+63550	62819	731	Normal Interval
+64202	63550	652	Normal Interval
+64808	64202	606	Normal Interval
+65447	64808	639	Normal Interval
+66113	65447	666	Normal Interval
+66772	66113	659	Normal Interval
+67427	66772	655	Normal Interval
+68066	67427	639	Normal Interval
+68694	68066	628	Normal Interval
+69202	68694	508	Small Interval (RR<600ms)
+69936	69202	734	Normal Interval
+71194	69936	1258	Big Interval (RR>1200ms)
+71825	71194	631	Normal Interval
+72488	71825	663	Normal Interval
+73144	72488	656	Normal Interval
+73775	73144	631	Normal Interval
+74419	73775	644	Normal Interval
+75052	74419	633	Normal Interval
+75694	75052	642	Normal Interval
+76322	75694	628	Normal Interval
+76927	76322	605	Normal Interval
+77586	76927	659	Normal Interval
+78272	77586	686	Normal Interval
+78952	78272	680	Normal Interval
+79611	78952	659	Normal Interval
+80244	79611	633	Normal Interval
+80872	80244	628	Normal Interval
+81488	80872	616	Normal Interval
+82019	81488	531	Small Interval (RR<600ms)
+82688	82019	669	Normal Interval
+83319	82688	631	Normal Interval
+83969	83319	650	Normal Interval
+84605	83969	636	Normal Interval
+85236	84605	631	Normal Interval
+85861	85236	625	Normal Interval
+86516	85861	655	Normal Interval
+86988	86516	472	Small Interval (RR<600ms)
+87377	86988	389	Small Interval (RR<600ms)
+87947	87377	570	Small Interval (RR<600ms)
+88700	87947	753	Normal Interval
+89366	88700	666	Normal Interval
+90036	89366	670	Normal Interval
+90686	90036	650	Normal Interval
+91344	90686	658	Normal Interval
+91972	91344	628	Normal Interval
+92600	91972	628	Normal Interval
+93216	92600	616	Normal Interval
+93819	93216	603	Normal Interval
+94425	93819	606	Normal Interval
+94961	94425	536	Small Interval (RR<600ms)
+95672	94961	711	Normal Interval
+96338	95672	666	Normal Interval
+96983	96338	645	Normal Interval
+97622	96983	639	Normal Interval
+98188	97622	566	Small Interval (RR<600ms)
+98891	98188	703	Normal Interval
+99536	98891	645	Normal Interval
+100169	99536	633	Normal Interval
+100791	100169	622	Normal Interval
+101291	100791	500	Small Interval (RR<600ms)
+102075	101291	784	Normal Interval
+102736	102075	661	Normal Interval
+103405	102736	669	Normal Interval
+104058	103405	653	Normal Interval
+104688	104058	630	Normal Interval
+105311	104688	623	Normal Interval
+105933	105311	622	Normal Interval
+106544	105933	611	Normal Interval
+107158	106544	614	Normal Interval
+107816	107158	658	Normal Interval
+108486	107816	670	Normal Interval
+109152	108486	666	Normal Interval
+109780	109152	628	Normal Interval
+110413	109780	633	Normal Interval
+111038	110413	625	Normal Interval
+111672	111038	634	Normal Interval
+112316	111672	644	Normal Interval
+112941	112316	625	Normal Interval
+113597	112941	656	Normal Interval
+114263	113597	666	Normal Interval
+114930	114263	667	Normal Interval
+115597	114930	667	Normal Interval
+116247	115597	650	Normal Interval
+116897	116247	650	Normal Interval
+117544	116897	647	Normal Interval
+118177	117544	633	Normal Interval
+118775	118177	598	Small Interval (RR<600ms)
+119416	118775	641	Normal Interval
+120102	119416	686	Normal Interval
+120777	120102	675	Normal Interval
+121427	120777	650	Normal Interval
+122072	121427	645	Normal Interval
+122713	122072	641	Normal Interval
+123288	122713	575	Small Interval (RR<600ms)
+123950	123288	662	Normal Interval
+124572	123950	622	Normal Interval
+125200	124572	628	Normal Interval
+125855	125200	655	Normal Interval
+126513	125855	658	Normal Interval
+127169	126513	656	Normal Interval
+127800	127169	631	Normal Interval
+128447	127800	647	Normal Interval
+129091	128447	644	Normal Interval
+129716	129091	625	Normal Interval
+130333	129716	617	Normal Interval
+130927	130333	594	Small Interval (RR<600ms)
+131577	130927	650	Normal Interval
+132175	131577	598	Small Interval (RR<600ms)
+132916	132175	741	Normal Interval
+133586	132916	670	Normal Interval
+134252	133586	666	Normal Interval
+134897	134252	645	Normal Interval
+135308	134897	411	Small Interval (RR<600ms)
+135669	135308	361	Small Interval (RR<600ms)
+136058	135669	389	Small Interval (RR<600ms)
+136491	136058	433	Small Interval (RR<600ms)
+137041	136491	550	Small Interval (RR<600ms)
+137511	137041	470	Small Interval (RR<600ms)
+137902	137511	391	Small Interval (RR<600ms)
+138308	137902	406	Small Interval (RR<600ms)
+138694	138308	386	Small Interval (RR<600ms)
+139086	138694	392	Small Interval (RR<600ms)
+139480	139086	394	Small Interval (RR<600ms)
+139852	139480	372	Small Interval (RR<600ms)
+140241	139852	389	Small Interval (RR<600ms)
+140608	140241	367	Small Interval (RR<600ms)
+140991	140608	383	Small Interval (RR<600ms)
+141372	140991	381	Small Interval (RR<600ms)
+141747	141372	375	Small Interval (RR<600ms)
+142133	141747	386	Small Interval (RR<600ms)
+142508	142133	375	Small Interval (RR<600ms)
+142861	142508	353	Small Interval (RR<600ms)
+143244	142861	383	Small Interval (RR<600ms)
+143622	143244	378	Small Interval (RR<600ms)
+144002	143622	380	Small Interval (RR<600ms)
+144394	144002	392	Small Interval (RR<600ms)
+144788	144394	394	Small Interval (RR<600ms)
+145180	144788	392	Small Interval (RR<600ms)
+145580	145180	400	Small Interval (RR<600ms)
+145958	145580	378	Small Interval (RR<600ms)
+146347	145958	389	Small Interval (RR<600ms)
+146725	146347	378	Small Interval (RR<600ms)
+147088	146725	363	Small Interval (RR<600ms)
+147452	147088	364	Small Interval (RR<600ms)
+147816	147452	364	Small Interval (RR<600ms)
+148172	147816	356	Small Interval (RR<600ms)
+148533	148172	361	Small Interval (RR<600ms)
+148869	148533	336	Small Interval (RR<600ms)
+149244	148869	375	Small Interval (RR<600ms)
+149627	149244	383	Small Interval (RR<600ms)
+150019	149627	392	Small Interval (RR<600ms)
+150419	150019	400	Small Interval (RR<600ms)
+150808	150419	389	Small Interval (RR<600ms)
+151191	150808	383	Small Interval (RR<600ms)
+151575	151191	384	Small Interval (RR<600ms)
+151944	151575	369	Small Interval (RR<600ms)
+152311	151944	367	Small Interval (RR<600ms)
+152680	152311	369	Small Interval (RR<600ms)
+153052	152680	372	Small Interval (RR<600ms)
+153427	153052	375	Small Interval (RR<600ms)
+153797	153427	370	Small Interval (RR<600ms)
+154155	153797	358	Small Interval (RR<600ms)
+154516	154155	361	Small Interval (RR<600ms)
+154875	154516	359	Small Interval (RR<600ms)
+155244	154875	369	Small Interval (RR<600ms)
+155630	155244	386	Small Interval (RR<600ms)
+156022	155630	392	Small Interval (RR<600ms)
+156405	156022	383	Small Interval (RR<600ms)
+156797	156405	392	Small Interval (RR<600ms)
+157166	156797	369	Small Interval (RR<600ms)
+157547	157166	381	Small Interval (RR<600ms)
+157927	157547	380	Small Interval (RR<600ms)
+158302	157927	375	Small Interval (RR<600ms)
+158688	158302	386	Small Interval (RR<600ms)
+159058	158688	370	Small Interval (RR<600ms)
+159427	159058	369	Small Interval (RR<600ms)
+159797	159427	370	Small Interval (RR<600ms)
+160172	159797	375	Small Interval (RR<600ms)
+160527	160172	355	Small Interval (RR<600ms)
+160877	160527	350	Small Interval (RR<600ms)
+161255	160877	378	Small Interval (RR<600ms)
+161644	161255	389	Small Interval (RR<600ms)
+162047	161644	403	Small Interval (RR<600ms)
+162430	162047	383	Small Interval (RR<600ms)
+162838	162430	408	Small Interval (RR<600ms)
+163363	162838	525	Small Interval (RR<600ms)
+163972	163363	609	Normal Interval
+164566	163972	594	Small Interval (RR<600ms)
+165172	164566	606	Normal Interval
+165755	165172	583	Small Interval (RR<600ms)
+166369	165755	614	Normal Interval
+166988	166369	619	Normal Interval
+167650	166988	662	Normal Interval
+168330	167650	680	Normal Interval
+169016	168330	686	Normal Interval
+169705	169016	689	Normal Interval
+170400	169705	695	Normal Interval
+171055	170400	655	Normal Interval
+171716	171055	661	Normal Interval
+172344	171716	628	Normal Interval
+172944	172344	600	Normal Interval
+173425	172944	481	Small Interval (RR<600ms)
+174211	173425	786	Normal Interval
+174886	174211	675	Normal Interval
+175550	174886	664	Normal Interval
+176172	175550	622	Normal Interval
+176800	176172	628	Normal Interval
+177405	176800	605	Normal Interval
+178019	177405	614	Normal Interval
+178627	178019	608	Normal Interval
+179058	178627	431	Small Interval (RR<600ms)
+179430	179058	372	Small Interval (RR<600ms)
+179825	179430	395	Small Interval (RR<600ms)
+180208	179825	383	Small Interval (RR<600ms)
+180583	180208	375	Small Interval (RR<600ms)
+180975	180583	392	Small Interval (RR<600ms)
+181361	180975	386	Small Interval (RR<600ms)
+181741	181361	380	Small Interval (RR<600ms)
+182127	181741	386	Small Interval (RR<600ms)
+182508	182127	381	Small Interval (RR<600ms)
+182900	182508	392	Small Interval (RR<600ms)
+183277	182900	377	Small Interval (RR<600ms)
+183661	183277	384	Small Interval (RR<600ms)
+184050	183661	389	Small Interval (RR<600ms)
+184419	184050	369	Small Interval (RR<600ms)
+184783	184419	364	Small Interval (RR<600ms)
+185163	184783	380	Small Interval (RR<600ms)
+185550	185163	387	Small Interval (RR<600ms)
+185941	185550	391	Small Interval (RR<600ms)
+186333	185941	392	Small Interval (RR<600ms)
+186711	186333	378	Small Interval (RR<600ms)
+187102	186711	391	Small Interval (RR<600ms)
+187486	187102	384	Small Interval (RR<600ms)
+187852	187486	366	Small Interval (RR<600ms)
+188238	187852	386	Small Interval (RR<600ms)
+188613	188238	375	Small Interval (RR<600ms)
+188988	188613	375	Small Interval (RR<600ms)
+189361	188988	373	Small Interval (RR<600ms)
+189719	189361	358	Small Interval (RR<600ms)
+190088	189719	369	Small Interval (RR<600ms)
+190447	190088	359	Small Interval (RR<600ms)
+190783	190447	336	Small Interval (RR<600ms)
+191161	190783	378	Small Interval (RR<600ms)
+191538	191161	377	Small Interval (RR<600ms)
+191927	191538	389	Small Interval (RR<600ms)
+192327	191927	400	Small Interval (RR<600ms)
+192711	192327	384	Small Interval (RR<600ms)
+193097	192711	386	Small Interval (RR<600ms)
+193486	193097	389	Small Interval (RR<600ms)
+193844	193486	358	Small Interval (RR<600ms)
+194202	193844	358	Small Interval (RR<600ms)
+194566	194202	364	Small Interval (RR<600ms)
+194936	194566	370	Small Interval (RR<600ms)
+195308	194936	372	Small Interval (RR<600ms)
+195677	195308	369	Small Interval (RR<600ms)
+196036	195677	359	Small Interval (RR<600ms)
+196394	196036	358	Small Interval (RR<600ms)
+196736	196394	342	Small Interval (RR<600ms)
+197091	196736	355	Small Interval (RR<600ms)
+197483	197091	392	Small Interval (RR<600ms)
+197855	197483	372	Small Interval (RR<600ms)
+198241	197855	386	Small Interval (RR<600ms)
+198638	198241	397	Small Interval (RR<600ms)
+199013	198638	375	Small Interval (RR<600ms)
+199397	199013	384	Small Interval (RR<600ms)
+199783	199397	386	Small Interval (RR<600ms)
+200166	199783	383	Small Interval (RR<600ms)
+200561	200166	395	Small Interval (RR<600ms)
+201047	200561	486	Small Interval (RR<600ms)
+201591	201047	544	Small Interval (RR<600ms)
+202136	201591	545	Small Interval (RR<600ms)
+202652	202136	516	Small Interval (RR<600ms)
+203208	202652	556	Small Interval (RR<600ms)
+203816	203208	608	Normal Interval
+204452	203816	636	Normal Interval
+205130	204452	678	Normal Interval
+205791	205130	661	Normal Interval
+206475	205791	684	Normal Interval
+207180	206475	705	Normal Interval
+207866	207180	686	Normal Interval
+208547	207866	681	Normal Interval
+209233	208547	686	Normal Interval
+209930	209233	697	Normal Interval
+210625	209930	695	Normal Interval
+211311	210625	686	Normal Interval
+211988	211311	677	Normal Interval
+212650	211988	662	Normal Interval
+213280	212650	630	Normal Interval
+213894	213280	614	Normal Interval
+214519	213894	625	Normal Interval
+215127	214519	608	Normal Interval
+215769	215127	642	Normal Interval
+216430	215769	661	Normal Interval
+216911	216430	481	Small Interval (RR<600ms)
+217688	216911	777	Normal Interval
+218322	217688	634	Normal Interval
+218938	218322	616	Normal Interval
+219544	218938	606	Normal Interval
+220152	219544	608	Normal Interval
+220750	220152	598	Small Interval (RR<600ms)
+221380	220750	630	Normal Interval
+222027	221380	647	Normal Interval
+222655	222027	628	Normal Interval
+223286	222655	631	Normal Interval
+223919	223286	633	Normal Interval
+224525	223919	606	Normal Interval
+225152	224525	627	Normal Interval
+225658	225152	506	Small Interval (RR<600ms)
+226352	225658	694	Normal Interval
+226950	226352	598	Small Interval (RR<600ms)
+227563	226950	613	Normal Interval
+228213	227563	650	Normal Interval
+228811	228213	598	Small Interval (RR<600ms)
+229508	228811	697	Normal Interval
+230119	229508	611	Normal Interval
+230727	230119	608	Normal Interval
+231333	230727	606	Normal Interval
+231800	231333	467	Small Interval (RR<600ms)
+232477	231800	677	Normal Interval
+233091	232477	614	Normal Interval
+233752	233091	661	Normal Interval
+234425	233752	673	Normal Interval
+235069	234425	644	Normal Interval
+235702	235069	633	Normal Interval
+236319	235702	617	Normal Interval
+236947	236319	628	Normal Interval
+237572	236947	625	Normal Interval
+238175	237572	603	Normal Interval
+238769	238175	594	Small Interval (RR<600ms)
+239386	238769	617	Normal Interval
+240036	239386	650	Normal Interval
+240636	240036	600	Normal Interval
+241330	240636	694	Normal Interval
+241961	241330	631	Normal Interval
+242608	241961	647	Normal Interval
+243213	242608	605	Normal Interval
+243716	243213	503	Small Interval (RR<600ms)
+244405	243716	689	Normal Interval
+245013	244405	608	Normal Interval
+245666	245013	653	Normal Interval
+246305	245666	639	Normal Interval
+246841	246305	536	Small Interval (RR<600ms)
+247558	246841	717	Normal Interval
+248175	247558	617	Normal Interval
+248811	248175	636	Normal Interval
+249425	248811	614	Normal Interval
+250044	249425	619	Normal Interval
+250638	250044	594	Small Interval (RR<600ms)
+251230	250638	592	Small Interval (RR<600ms)
+251858	251230	628	Normal Interval
+252475	251858	617	Normal Interval
+253094	252475	619	Normal Interval
+253711	253094	617	Normal Interval
+254327	253711	616	Normal Interval
+254925	254327	598	Small Interval (RR<600ms)
+255513	254925	588	Small Interval (RR<600ms)
+256105	255513	592	Small Interval (RR<600ms)
+256677	256105	572	Small Interval (RR<600ms)
+257286	256677	609	Normal Interval
+257913	257286	627	Normal Interval
+258552	257913	639	Normal Interval
+259211	258552	659	Normal Interval
+259830	259211	619	Normal Interval
+260441	259830	611	Normal Interval
+261041	260441	600	Normal Interval
+261661	261041	620	Normal Interval
+262283	261661	622	Normal Interval
+262869	262283	586	Small Interval (RR<600ms)
+263502	262869	633	Normal Interval
+264091	263502	589	Small Interval (RR<600ms)
+264772	264091	681	Normal Interval
+265413	264772	641	Normal Interval
+266022	265413	609	Normal Interval
+266650	266022	628	Normal Interval
+267272	266650	622	Normal Interval
+267869	267272	597	Small Interval (RR<600ms)
+268475	267869	606	Normal Interval
+269055	268475	580	Small Interval (RR<600ms)
+269688	269055	633	Normal Interval
+270347	269688	659	Normal Interval
+271005	270347	658	Normal Interval
+271644	271005	639	Normal Interval
+272247	271644	603	Normal Interval
+272858	272247	611	Normal Interval
+273477	272858	619	Normal Interval
+274075	273477	598	Small Interval (RR<600ms)
+274663	274075	588	Small Interval (RR<600ms)
+275280	274663	617	Normal Interval
+275927	275280	647	Normal Interval
+276569	275927	642	Normal Interval
+277191	276569	622	Normal Interval

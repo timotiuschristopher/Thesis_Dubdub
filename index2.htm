@@ -40,14 +40,12 @@
         <hr>
 
         <div id="container">
-            <h4>AWS S3 Bucket Data</h4>
-            <div id="bucket-data-list">
-
-            </div>
+            <h4>(Step 1) Get file from AWS S3 Bucket [puskesmas-bucket]</h4>
+            <div id="bucket-data-list"></div>
         </div>
         <br>
         <table>
-            <left><strong>Upload local file from computer </strong></left>
+            <h4>(Step 2) Upload local file from computer & Display Data</h4>
             <tr>
                 <td align="left"><label>Upload local file : </label></td> 
                 <td align="left">
@@ -74,22 +72,19 @@
                 </td>
             </tr> 
         </table></form> 
-
-        <left><label><strong>OR</strong></label></left>
         <br>
         <br>
-                <label><strong>4. Displaying ECG Signal with R Peak & P Wave</strong></label>
-        <br>
+                <h4>(Step 3) Displaying ECG Signal with R Peak & P Wave</h4>
                 <form action="/graph" method="GET">
                 <left><button>Full Signal View</button></left>
                 </form>
         <br>
         <br>
-                <label><strong>5. Realtime ECG</strong></label>
-        <br>
+                <h4>Realtime ECG</h4>
                 <form action="/trial" method="GET">
                 <left> <button>Coming soon</button> </left>
                 </form>
+        <br>
         <br>
         <div class="wrap" style="position:relative; width:4000px; height:300; overflow-x:auto; white-space: nowrap;">
             <!-- style="width:4000px; height:450px; overflow-x: scroll;" -->
