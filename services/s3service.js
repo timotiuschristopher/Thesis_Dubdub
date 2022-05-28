@@ -4,30 +4,37 @@ require('dotenv').config({path:'./credentials/secrets.env'})
 var AWS = require('aws-sdk');
 const { promiseCallback } = require('express-fileupload/lib/utilities');
 // Set the region 
-AWS.config.update({region: 'ap-southeast-1'});
+AWS.config.update({
+    region: 'ap-southeast-1'
+    // credentials:{
+    //   new AWS.SharedIniFileCredentials({profile: 'christo'})
+    // }
+});
 
 // Create S3 service object
 var BucketURI= "arn:aws:s3:::datalake-puskesmas/";
-var Bucketname = "datalake-puskesmas";
+var BucketName = "datalake-puskesmas";
 
 const s3 = new AWS.S3({
-    accessKeyId: process.env.IAM_USER_KEY,                  //required # Put your iam user key
-    secretAccessKey: process.env.IAM_USER_SECRET,           //required # Put your iam user secret key
-    Bucket: BucketURI                           //required *# Put your bucket name
+  accessKeyId: process.env.IAM_USER_KEY,                  //required # Put your iam user key
+  secretAccessKey: process.env.IAM_USER_SECRET,           //required # Put your iam user secret key
+  Bucket: BucketURI                           //required *# Put your bucket name
   });
 
-// // Call S3 to list the buckets
-// s3.listBuckets(function(err, data) {
+
+// Call S3 to list the buckets
+// const csv_obj = s3.getObject({Bucket:BucketName,Key:"209-SVT/209-SVT.csv"},function(err, data) {
 //   if (err) {
 //     console.log("Error", err);
 //   } else {
-//     console.log("Success", data.Buckets);
+//     console.log("Success", data);
 //   }
+  
 // });
 
-const s3uploader = (file,folder) =>{
+const s3uploader = async (file,folder) =>{
     // call S3 to retrieve upload file to specified bucket
-    var uploadParams = {Bucket:Bucketname, Key: '', Body: ''};
+    var uploadParams = {Bucket:BucketName, Key: '', Body: ''};
     // var file = process.argv[2];
     // uploadParams.Bucket = `${BucketURI}`;
 
@@ -42,7 +49,7 @@ const s3uploader = (file,folder) =>{
     uploadParams.Key = (`${folder}/` + path.basename(file)); 
 
     // call S3 to retrieve upload file to specified bucket
-    s3.upload(uploadParams, function (err, data) {
+    await s3.upload(uploadParams, function (err, data) {
         if (err) {
             console.log("Error", err);
         } if (data) {
@@ -51,22 +58,44 @@ const s3uploader = (file,folder) =>{
     });
 };
 
-const s3uploadFile = async (file,folder) => {
-    await s3uploader('./uploadedFile/'+file+".csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"LPF.csv",`${folder}`);    
-    await s3uploader('./uploadedFile/'+file+"QRS.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"Peak.csv",`${folder}`); 
-    await s3uploader('./uploadedFile/'+file+"PeakTrack.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"P.csv",`${folder}`); 
-    await s3uploader('./uploadedFile/'+file+"RLPF.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"RLPFp.csv",`${folder}`); 
-    await s3uploader('./uploadedFile/'+file+"RR.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"inRR.csv",`${folder}`); 
-    await s3uploader('./uploadedFile/'+file+"log.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"QS.csv",`${folder}`);  
-    await s3uploader('./uploadedFile/'+file+"Pre.csv",`${folder}`);
-    await s3uploader('./uploadedFile/'+file+"Pwave.csv",`${folder}`); 
+
+
+const s3uploadFile = async (noExt) => {
+    const a = await s3uploader('./uploadedFile/'+noExt+".csv",`${noExt}`);
+    console.log('1.',a);
+    const b = await s3uploader('./uploadedFile/'+noExt+"LPF.csv",`${noExt}`);   
+    console.log('2.',b); 
+    const c = await s3uploader('./uploadedFile/'+noExt+"QRS.csv",`${noExt}`);
+    console.log('3.',c);
+    const d = await s3uploader('./uploadedFile/'+noExt+"Peak.csv",`${noExt}`); 
+    console.log('4.',d);
+    const e = await s3uploader('./uploadedFile/'+noExt+"PeakTrack.csv",`${noExt}`);
+    console.log('5.',e);
+    const f = await s3uploader('./uploadedFile/'+noExt+"P.csv",`${noExt}`); 
+    console.log('6.',f);
+    const g = await s3uploader('./uploadedFile/'+noExt+"RLPF.csv",`${noExt}`);
+    console.log('7.',g);
+    const h = await s3uploader('./uploadedFile/'+noExt+"RLPFp.csv",`${noExt}`); 
+    console.log('8.',h);
+    const i = await s3uploader('./uploadedFile/'+noExt+"RR.csv",`${noExt}`);
+    console.log('9.',i);
+    const j = await s3uploader('./uploadedFile/'+noExt+"inRR.csv",`${noExt}`); 
+    console.log('10.',j);
+    const k = await s3uploader('./uploadedFile/'+noExt+"log.csv",`${noExt}`);
+    console.log('11.',k);
+    const l = await s3uploader('./uploadedFile/'+noExt+"QS.csv",`${noExt}`);  
+    console.log('12.',l);
+    const m = await s3uploader('./uploadedFile/'+noExt+"Pre.csv",`${noExt}`);
+    console.log('13.',m);
+    const n = await s3uploader('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`); 
+    console.log('14.',n);
 }
     // s3Service.s3uploadFile('./uploadedFile/'+noExt+"Pwave.csv",`${noExt}`);
 
-module.exports = { s3uploadFile }
+async function s3getBucketList(BucketName){
+  var listParams = {Bucket:BucketName, MaxKeys:10};
+  const BucketObjectList = s3.listObjects(listParams).promise();
+  return BucketObjectList || {};
+}
+
+module.exports = { s3uploadFile, s3getBucketList }

@@ -16,41 +16,75 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
         <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@0.7.7"></script>
+
         <link rel="stylesheet" href="style.css">
+        <style>
+        /* table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        table {
+            border-spacing: 5px;
+        } */
+        </style>
         
         <title>DubDub Cloud Computing Virtual System</title>
     </head>
+
     <body>
         <h1 align="center">ECG Signal Computation and Plotter</h1>
         <hr>
 
         <table>
-            <center><form class="fileupload" action="upload" method="post" enctype="multipart/form-data">
-                    <input type="file" name="upfile" id="filename" value=""> </center>
-        <br>
+            <left><strong>Get file from AWS S3</strong></left>
             <tr>
-                <td align ="left"> <label> Amplification : </label></td>
-                <td align ="center"><input text="number" name="amp" required/></td>
+                <td align="left"><label>Input Filename : </label></td>
+            </tr> 
+        </table>
+        <br>
+        <table>
+            <left><strong>Upload local file from computer </strong></left>
+            <tr>
+                <td align="left"><label>Upload local file : </label></td> 
+                <td align="left">
+                    <form class="fileupload" action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="upfile" id="filename" value="">
+                </td>
             </tr>
             <tr>
-                <td align="left"> <label> Sampling Frequency : </label></td>
-                <td align="center"><input text="number" name="freq" required/></td>
-                <td> <input type="submit"></td>
+                <td align ="left"><label> Amplification : </label></td>
+                <td align ="left"><input text="number" name="amp" required/></td>
+            </tr>
+            <tr>
+                <td align="left"><label> Sampling Frequency : </label></td>
+                <td align="left">
+                    <input text="number" name="freq" required/>
+                    <input type="submit">
+                </td>
             </tr>
             <tr>
                 <td align="left"> <label> Name of File (without .csv) : </label> </td>
-                <td align="center"><input type="text" id="nameoffile"></td> 
-                <td align="right"><button type="button" onclick="start()">Display Data</button></td>
+                <td align="left">
+                    <input type="text" id="nameoffile">
+                    <button type="button" onclick="start()">Display Data</button>
+                </td>
             </tr> 
         </table></form> 
+
+        <left><label><strong>OR</strong></label></left>
         <br>
+        <br>
+                <label><strong>4. Displaying ECG Signal with R Peak & P Wave</strong></label>
         <br>
                 <form action="/graph" method="GET">
-                <center><button>Full Signal View</button></center>
+                <left><button>Full Signal View</button></left>
                 </form>
         <br>
+        <br>
+                <label><strong>5. Realtime ECG</strong></label>
+        <br>
                 <form action="/trial" method="GET">
-                <center> <button>Trial</button> </center>
+                <left> <button>Coming soon</button> </left>
                 </form>
         <br>
         <div class="wrap" style="position:relative; width:4000px; height:300; overflow-x:auto; white-space: nowrap;">
@@ -128,7 +162,6 @@
         <br>
         
         <script>
-            
             function start(){
                 getData();
                 chartIt();
@@ -138,10 +171,10 @@
                     const xs = [];
                     // Record30down
                     var fileName = document.querySelector("#nameoffile").value;
-                    const response = await fetch(fileName + 'LPF.csv');
+                    // const response = await fetch(fileName + 'LPF.csv');
+                    const response = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}LPF.csv`);
                     const data = await response.text();
                     console.log(fileName);
-                    
                     const table = data.split('\n').slice(10);
                     table.forEach (row => {
                         const columns = row.split('	');
@@ -158,7 +191,8 @@
                         const xs2 = [];
                         const arr2 = [];
                         // var fileName2 = document.querySelector('200edit.csv').value;
-                        const response2 = await fetch(fileName + 'RR.csv');
+                        // const response2 = await fetch(fileName + 'RR.csv');
+                        const response2 = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}RR.csv`);
                         const data2 = await response2.text(); 
                         const table2 = data2.split('\n').slice(0);
                         table2.forEach (row => {
@@ -174,7 +208,8 @@
                         const ys3 = [];
                         const xs3 = [];
                         // var fileName2 = document.querySelector('200edit.csv').value;
-                        const response3 = await fetch(fileName + 'RLPF.csv');
+                        // const response3 = await fetch(fileName + 'RLPF.csv');
+                        const response3 = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}RLPF.csv`);
                         const data3 = await response3.text(); 
                         const table3 = data3.split('\n').slice(0);
                         table3.forEach (row => {
@@ -189,7 +224,8 @@
                         const ys4 = [];
                         const xs4 = [];
                         // var fileName2 = document.querySelector('200edit.csv').value;
-                        const response4 = await fetch(fileName + 'P.csv');
+                        // const response4 = await fetch(fileName + 'P.csv');
+                        const response4 = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}P.csv`);
                         const data4 = await response4.text(); 
                         const table4 = data4.split('\n').slice(0);
                         table4.forEach (row => {
@@ -205,7 +241,8 @@
                         const ys6 = [];
                         const xs5 = [];
                         // var fileName2 = document.querySelector('200edit.csv').value;
-                        const response5 = await fetch(fileName + 'QS.csv');
+                        // const response5 = await fetch(fileName + 'QS.csv');
+                        const response5 = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}QS.csv`);
                         const data5 = await response5.text(); 
                         const table5 = data5.split('\n').slice(0);
                         table5.forEach (row => {
@@ -222,7 +259,8 @@
                         const ystom = [];
                         const xstom = [];
                         // var fileName2 = document.querySelector('200edit.csv').value;
-                        const responsetom = await fetch(fileName + 'QRS.csv');
+                        // const responsetom = await fetch(fileName + 'QRS.csv');
+                        const responsetom = await fetch(`https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}QRS.csv`);
                         const datatom = await responsetom.text(); 
                         const tabletom = datatom.split('\n').slice(52);
                         tabletom.forEach (row => {
@@ -238,7 +276,8 @@
                         $(document).ready(function(){
                             $('#load_data').click(function(){
                                 $.ajax({
-                                    url: fileName + 'RR.csv',
+                                    // url: fileName + 'RR.csv',
+                                    url: `https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}RR.csv`,
                                     dataType:"text",
                                     success:function(data)
                                     {
@@ -271,7 +310,8 @@
                                 $(document).ready(function(){
                                     $('#load_dataPRE').click(function(){
                                         $.ajax({
-                                            url: fileName + 'Pre.csv',
+                                            // url: fileName + 'Pre.csv',
+                                            url: `https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}Pre.csv`,
                                             dataType:"text",
                                             success:function(data)
                                             {
@@ -304,7 +344,8 @@
                                         $(document).ready(function(){
                                             $('#load_dataSum').click(function(){
                                                 $.ajax({
-                                                    url: fileName + 'log.csv',
+                                                    // url: fileName + 'log.csv',
+                                                    url: `https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}log.csv`,
                                                     dataType:"text",
                                                     success:function(data)
                                                     {
@@ -337,7 +378,8 @@
                                                 $(document).ready(function(){
                                                     $('#load_data3').click(function(){
                                                         $.ajax({
-                                                            url: fileName + 'P.csv',
+                                                            // url: fileName + 'P.csv',
+                                                            url: `https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}P.csv`,
                                                             dataType:"text",
                                                             success:function(data)
                                                             {
@@ -370,7 +412,8 @@
                                                         $(document).ready(function(){
                                                             $('#load_data').click(function(){
                                                                 $.ajax({
-                                                                    url: fileName + 'QS.csv',
+                                                                    // url: fileName + 'QS.csv',
+                                                                    url: `https://datalake-puskesmas.s3.ap-southeast-1.amazonaws.com/${fileName}/${fileName}QS.csv`,
                                                                     dataType:"text",
                                                                     success:function(data)
                                                                     {
@@ -489,7 +532,6 @@
                                                                 myChart.update();
                                                             };
                                                         }
-                                                    </script>
-                                                    
-                                                </body>
-                                                </html>
+        </script>                                
+    </body>
+</html>
