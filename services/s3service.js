@@ -2,9 +2,11 @@
 require('dotenv').config({path:'./credentials/secrets.env'})
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
-const { promiseCallback } = require('express-fileupload/lib/utilities');
+// const { promiseCallback } = require('express-fileupload/lib/utilities');
 // Set the region 
 AWS.config.update({
+    accessKeyId: process.env.IAM_USER_KEY,          //required # Put your iam user key
+    secretAccessKey: process.env.IAM_USER_SECRET,   //required # Put your iam user secret key
     region: 'ap-southeast-1'
 });
 
@@ -13,8 +15,6 @@ var BucketURI= "arn:aws:s3:::puskesmas-bucket";
 var BucketName = "puskesmas-bucket";
 
 const s3 = new AWS.S3({
-  accessKeyId: process.env.IAM_USER_KEY,                  //required # Put your iam user key
-  secretAccessKey: process.env.IAM_USER_SECRET,           //required # Put your iam user secret key
   Bucket: BucketURI                                       //required # Put your bucket name
 });
 
@@ -70,7 +70,7 @@ const s3uploadFile = async (noExt) => {
     // console.log('12.',l);
     const m = await s3uploader('./uploadedFile/'+noExt+"Pre.csv");
     // console.log('13.',m);
-    const n = await s3uploader('./uploadedFile/'+noExt+"Pwave.csv"); 
+    const n = await s3uploader('./uploadedFile/'+noExt+"PWave.csv"); 
     // console.log('14.',n);
 }
 

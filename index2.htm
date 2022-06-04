@@ -185,7 +185,7 @@
             }
 
             function downloadFile(index){
-                const fileName = (list[index] || {}).key;
+                var fileName = (list[index] || {}).key;
                 getData(`/get-object-url/${fileName}`, (url) =>{
                     console.log(url);
                     window.open(url,'_blank');
