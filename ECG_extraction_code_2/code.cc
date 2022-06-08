@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
 	char fileNameQRS[50]; 
         strcpy(fileNameQRS, fileName);
         strcat(fileNameQRS, "QRS.csv");
-	
+
 	// R-peak on tompkins
 	char fileNamePeak[50]; 
         strcpy(fileNamePeak, fileName);

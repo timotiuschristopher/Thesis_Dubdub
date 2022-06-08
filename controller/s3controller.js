@@ -1,9 +1,10 @@
-// const formidable = require('formidable');
+//Load credentials
+require('dotenv').config({path:'./credentials/secrets.env'})
 const s3Service = require("../services/s3service");
 
 async function s3Get (req, res){
     try{
-        const bucketData = await s3Service.s3getBucketList('puskesmas-bucket');
+        const bucketData = await s3Service.s3getBucketList(process.env.RAW_DATA_BUCKET);
         const {Contents = []} = bucketData;
         res.send(Contents.map(content => {
             return{
@@ -21,7 +22,7 @@ async function getSignedUrl (req, res){
     try{
         const {key} = req.params;
         console.log(key)
-        const url = await s3Service.getPresignedURL('puskesmas-bucket', key);
+        const url = await s3Service.getPresignedURL(process.env.RAW_DATA_BUCKET, key);
         res.send(url);
 
     }catch(ex){

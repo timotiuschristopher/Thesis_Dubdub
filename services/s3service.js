@@ -11,17 +11,24 @@ AWS.config.update({
 });
 
 // Create S3 service object
-var BucketURI= "arn:aws:s3:::puskesmas-bucket";
-var BucketName = "puskesmas-bucket";
+var BucketRawURI= process.env.RAW_DATA_BUCKET_URI;
+var BucketRawName = process.env.RAW_DATA_BUCKET;
+
+var BucketComputedURI = process.env.COMPUTED_DATA_BUCKET_URI;
+var BucketComputedName = process.env.COMPUTED_DATA_BUCKET;
+
 
 const s3 = new AWS.S3({
-  Bucket: BucketURI                                       //required # Put your bucket name
+  Bucket: BucketRawURI                                       //required # Put your bucket name
 });
 
+const s3Download = new AWS.S3({
+    Bucket:BucketComputedURI
+})
 
 const s3uploader = async (file) =>{
     // call S3 to retrieve upload file to specified bucket
-    var uploadParams = {Bucket:BucketName, Key: '', Body: ''};
+    var uploadParams = {Bucket:BucketComputedName, Key: '', Body: ''};
 
     // Configure the file stream and obtain the upload parameters
     var fs = require('fs');
@@ -74,20 +81,20 @@ const s3uploadFile = async (noExt) => {
     // console.log('14.',n);
 }
 
-async function s3getBucketList(BucketName){
-  var listParams = {Bucket:BucketName, MaxKeys:100};
-  const BucketObjectList = s3.listObjects(listParams).promise();
+async function s3getBucketList(BucketRawName){
+  var listParams = {Bucket:BucketRawName, MaxKeys:100};
+  const BucketObjectList = s3Download.listObjects(listParams).promise();
   return BucketObjectList || {};
 }
 
-async function getPresignedURL(BucketName, key){
+async function getPresignedURL(BucketRawName, key){
     const params = {
-        Bucket:BucketName, 
+        Bucket:BucketRawName, 
         Key:key,
         Expires: 60
     }
 
-    const preSignedURL = await s3.getSignedUrl('getObject', params);
+    const preSignedURL = await s3Download.getSignedUrl('getObject', params);
     return preSignedURL;
 
 }
