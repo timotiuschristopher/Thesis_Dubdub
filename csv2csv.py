@@ -1,4 +1,4 @@
-# Nested Array to Basic Array Converted CSV
+# Nested Array to Basic Array CSV Converter
 # by: T.C. Tantokusumo
 # 2022
 
