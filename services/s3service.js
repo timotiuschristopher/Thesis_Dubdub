@@ -1,3 +1,7 @@
+// AWS S3 service back-end code
+// by: T.C. Tantokusumo
+// 2022
+
 //Load credentials
 require('dotenv').config({path:'./credentials/secrets.env'})
 // Load the AWS SDK for Node.js
@@ -51,8 +55,8 @@ const s3uploader = async (file) =>{
 };
 
 const s3uploadFile = async (noExt) => {
-    const a = await s3uploader('./uploadedFile/'+noExt+".csv");          //alternative: const a = await s3uploader('./uploadedFile/'+noExt+".csv",`${noExt}`);
-    // console.log('1.',a);                                                            //for debugging
+    const a = await s3uploader('./uploadedFile/'+noExt+".csv");          
+    // console.log('1.',a);                                         //for debugging
     const b = await s3uploader('./uploadedFile/'+noExt+"LPF.csv");   
     // console.log('2.',b); 
     const c = await s3uploader('./uploadedFile/'+noExt+"QRS.csv");

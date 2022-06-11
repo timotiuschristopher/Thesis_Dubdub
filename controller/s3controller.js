@@ -1,3 +1,7 @@
+// AWS S3 controller back-end code
+// by: T.C. Tantokusumo
+// 2022
+
 //Load credentials
 require('dotenv').config({path:'./credentials/secrets.env'})
 const s3Service = require("../services/s3service");

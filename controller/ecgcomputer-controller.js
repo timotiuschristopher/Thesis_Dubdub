@@ -1,3 +1,7 @@
+// ECG Computer controller back-end code
+// Modified by: T.C. Tantokusumo
+// 2022
+
 const exec = require('child_process').execFile; //executing the .exe file (program)
 const s3Service = require("../services/s3service");
 const path = require('path');

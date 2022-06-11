@@ -1,3 +1,9 @@
+// dbDAO back-end code
+// by: T.C. Tantokusumo
+// 2022
+
+// NEED FURTHER DEVELOPMENT
+
 const ObjectID = require('mongodb').ObjectID
 
  // Notice how the users collection is passed into the models

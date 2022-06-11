@@ -1,3 +1,7 @@
+// ECG Telemedicine Web Application
+// Modified by T.C. Tantokusumo
+// 2022
+
 const cors = require('cors')
 const express = require('express');
 const app = express();

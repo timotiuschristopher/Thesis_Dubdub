@@ -36,7 +36,7 @@ float getSDANN(float miu, int N, int bufferRR[]);
 float getRMSSD(int N, int bufferRR[]);
 
 // int bufferR[100000];  //y-value or all valid RR peaks (no x-value)
-int bufferRRV[100000];
+int bufferRRV[100000]; 
 // int bufferP[100000];
 float distanceWeight[100000];
 int bufferS[100000];

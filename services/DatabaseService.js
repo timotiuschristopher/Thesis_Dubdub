@@ -1,3 +1,9 @@
+// Database Service back-end code
+// by: T.C. Tantokusumo
+// 2022
+
+//NEED FURTHER DEVELOPMENT
+
 //Load credentials
 require('dotenv').config({path:'./credentials/secrets.env'})
 

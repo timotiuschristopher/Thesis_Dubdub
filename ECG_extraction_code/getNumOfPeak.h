@@ -1,6 +1,6 @@
 using namespace std;
 
-int bufferR[100000];
+int bufferR[100000]; //100000
 
 int getNumOfPeak(int sample[], int k, char fileNamePeaks[], char fileNamePeakTracks[], int ymax) {
 

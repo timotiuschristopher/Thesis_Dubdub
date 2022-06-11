@@ -1,5 +1,5 @@
 using namespace std;
-int bufferP[100000];
+int bufferP[100000]; //100000
 
 int getPwave(int dataLPF[], int rPeaks[], int q, char fileNamePWaves[], char fileNamePs[], char fileNameRLPFs[], char fileNameRLPFps[], int isoAvg, int sR) {
 
