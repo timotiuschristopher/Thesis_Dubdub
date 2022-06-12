@@ -44,14 +44,46 @@
     <body onload="loadData()">
         <h1 align="center">ECG Signal Computation and Plotter</h1>
         <hr>
-
-        <div id="container">
-            <h4>(Step 1) Get file from AWS S3 Bucket [puskesmas-bucket]</h4>
+        <div>
+            <h4>Description:</h4>
+            <p>DubDub Cloud Computing Virtual system is a system to compute ECG signal data.<br>
+               The computation program is designed to detect:<br>
+               > Heart Rate Variability<br>
+               > Cardiac Arrhythmias<br>
+               > R-Peak<br>
+               > P-Wave<br>
+               > QS-wave
+            </p>
+        </div>
+        <hr>
+        <div>
+            <h3>A. Raw ECG Signal Data Download & Conversion Instruction:</h3>
+            <p>1. Download the raw ECG signal data (in .json format) transmitted from Rural Public Health Center from "Get file from AWS S3 Bucket" section<br>
+               2. Convert the file into csv by using <a href="https://www.convertcsv.com/json-to-csv.htm">www.convertcsv.com</a><br>
+               3. If data is presented as nested array in .csv file, the nested array converter program must be executed<br>
+               4. Remove the Index (or the 1st column) of the converted file<br>
+               5. Finally, the data is ready to be computed.
+            </p>
+        </div>
+        <br>
+        <div>
+            <h4>Get file from AWS S3 Bucket [puskesmas-bucket]</h4>
             <div id="bucket-data-list"></div>
         </div>
         <br>
+        <hr style="height:10px">
+        <div>
+            <h3>B. ECG Signal Data Computation Instruction:</h3>
+            <p>1. Upload the converted file to the "Upload local file from computer & Display Data" section <br>
+               2. Input the desired amplification and sampling Frequency, then press submit<br>
+               3. To show the computed data, type FILENAME ONLY to "Name of File (without .csv)" form<br>
+               4. Then press display data<br>
+               5. All of the computed ECG signal parameters are shown in "ECG Signal Data Computation Result"<br>	
+            </p>
+        </div>
+        <br>
         <table>
-            <h4>(Step 2) Upload local file from computer & Display Data</h4>
+            <h4>Upload local file from computer & Display Data</h4>
             <tr>
                 <td align="left"><label>Upload local file : </label></td> 
                 <td align="left">
@@ -79,24 +111,35 @@
             </tr> 
         </table></form> 
         <br>
+        <hr style="height:10px">
+        <div>
+            <h3>C. Displaying ECG Signal with R Peak & P Wave Instruction:</h3>
+            <p>1. On the "Displaying ECG Signal with R Peak & P Wave" section, press Full Signal View button <br>
+               2. Then, enter the desired FILENAME only to check the R Peak & P Wave<br>
+               3. The graph can zoom and pan by using the tools on the upper right of the graph	
+            </p>
+        </div>
         <br>
-                <h4>(Step 3) Displaying ECG Signal with R Peak & P Wave</h4>
+                <h4>Displaying ECG Signal with R Peak & P Wave</h4>
                 <form action="/graph" method="GET">
                 <left><button>Full Signal View</button></left>
                 </form>
         <br>
+        <hr style="height:10px">
         <br>
                 <h4>Realtime ECG</h4>
                 <form action="/trial" method="GET">
                 <left> <button>Coming soon</button> </left>
                 </form>
         <br>
+        <hr style="height:10px">
         <br>
         <div class="wrap" style="position:relative; width:4000px; height:300; overflow-x:auto; white-space: nowrap;">
             <!-- style="width:4000px; height:450px; overflow-x: scroll;" -->
             <canvas id="chart" height="200" width="2000"></canvas>               
         </div>
-        
+        <br>
+        <h2 align="center">ECG Signal Data Computation Result<h2>
         <br>
         <div class="container" width="2000">
             <div class="table-responsive" width="2000">
